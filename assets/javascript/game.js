@@ -52,6 +52,7 @@ pastGuesses.textContent = userGuessesArray;
     pastGuesses.textContent = userGuessesArray;
     console.log(userGuessesArray);
 
+    
     if(userInput === computerSelect){
         userGuessesArray = [];
         pastGuesses.textContent = userGuessesArray;
