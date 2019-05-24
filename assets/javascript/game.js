@@ -27,6 +27,7 @@ var moreGuesses = document.getElementById("guess-count");
 moreGuesses.textContent = guessRemain;
 
 var pastGuesses = document.getElementById("previous-guesses");
+pastGuesses.textContent = userGuessesArray;
 
 
 
@@ -46,16 +47,26 @@ var pastGuesses = document.getElementById("previous-guesses");
     
 
     //If the letter we type matches the computer's letter
+
+    userGuessesArray.push(userInput);
+    pastGuesses.textContent = userGuessesArray;
+    console.log(userGuessesArray);
+
     if(userInput === computerSelect){
+        userGuessesArray = [];
+        pastGuesses.textContent = userGuessesArray;
         wins++;
         totalWins.textContent = wins;
+        guessRemain = 9
+        moreGuesses.textContent = guessRemain;
         //have to figure out to clear guesses
-        userGuessesArray = [];
+
+       
         
     }
 
     // if you guess the wrong letter but still have guesses left greater than 0
-    else if(userInput !== computerSelect && guessRemain > 0){
+    else if(userInput !== computerSelect && guessRemain >= 1){
         guessRemain--;
         
         
@@ -63,17 +74,19 @@ var pastGuesses = document.getElementById("previous-guesses");
     }
 
     //guess the wrong letter and have no guesses left
-    else if(userInput!== computerSelect && guessRemain <= 0){
-        guessRemain = 9;
+    else if(userInput!== computerSelect && guessRemain === 0){
+        console.log(guessRemain);
+        userGuessesArray = [];
+        pastGuesses.textContent = userGuessesArray;
         losses++;
         totalLosses.textContent = losses;
-        userGuessesArray = [];
+        guessRemain = 9;
+        moreGuesses.textContent = guessRemain;
         //have to figure out how to return guesses left back to 9
     }
 
-    userGuessesArray.push(userInput);
-    pastGuesses.textContent = userGuessesArray;
-    console.log(userGuessesArray);
+    
+    
     
 }
 
