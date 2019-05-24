@@ -58,8 +58,9 @@ pastGuesses.textContent = userGuessesArray;
         pastGuesses.textContent = userGuessesArray;
         wins++;
         totalWins.textContent = wins;
-        guessRemain = 9
+        guessRemain = 9;
         moreGuesses.textContent = guessRemain;
+        guessRemain--
         //have to figure out to clear guesses
 
        
@@ -68,6 +69,7 @@ pastGuesses.textContent = userGuessesArray;
 
     // if you guess the wrong letter but still have guesses left greater than 0
     else if(userInput !== computerSelect && guessRemain >= 1){
+       moreGuesses.textContent = guessRemain;
         guessRemain--;
         
         
@@ -83,6 +85,7 @@ pastGuesses.textContent = userGuessesArray;
         totalLosses.textContent = losses;
         guessRemain = 9;
         moreGuesses.textContent = guessRemain;
+        guessRemain--
         //have to figure out how to return guesses left back to 9
     }
 
